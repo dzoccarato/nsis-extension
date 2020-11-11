@@ -61,13 +61,15 @@ if ($includeMorePlugins -eq "yes") {
 }
     
 if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
-
-    $hasAnsiPath = Test-Path $includeCustomPluginsPath + '\x86-ansi';
-    $hasUnicodePath = Test-Path $includeCustomPluginsPath + '\x86-unicode';
+    
+    $customAnsiPath = $includeCustomPluginsPath + '\x86-ansi';
+    $hasAnsiPath = Test-Path $customAnsiPath;
+    $customUnicodePath = $includeCustomPluginsPath + '\x86-unicode';
+    $hasUnicodePath = Test-Path $customUnicodePath;
     
     # Has ansi plugin folder, copy in appropriate out folder
     if ($hasAnsiPath) {
-        $pluginPath = $includeCustomPluginsPath + "\x86-ansi\*"
+        $pluginPath = $customAnsiPath + "\*"
         $pluginOutput = $nsis3Directory + "\plugins\x86-ansi"
         
         Write-Output "[includeCustomPluginsPath - x86-ansi detected] dump '$pluginPath':"
@@ -82,7 +84,7 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
     
     # Has unicode plugin folder, copy in appropriate out folder
     if ($hasUnicodePath) {
-        $pluginPath = $includeCustomPluginsPath + "\x86-unicode\*"
+        $pluginPath = $customUnicodePath + "\*"
         $pluginOutput = $nsis3Directory + "\plugins\x86-unicode"
         
         Write-Output "[includeCustomPluginsPath - x86-unicode detected] dump '$pluginPath':"
