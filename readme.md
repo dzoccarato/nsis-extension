@@ -4,5 +4,3 @@ This is a test and potentially unsable version of [https://github.com/developmen
 Install at you own risk.
 
 If you are looking for a stable version please refer to link above.
-
-Any issue should be report on [stable issue page](https://github.com/development-bizeta-mestre/nsis-extension/issues)
