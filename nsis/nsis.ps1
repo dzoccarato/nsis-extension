@@ -59,7 +59,8 @@ if ($includeMorePlugins -eq "yes") {
     Get-ChildItem $pluginOutput
     Write-Host "" # write new line
 }
-    
+Write-Host "" # write new line
+
 if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
     
     $customAnsiPath = $includeCustomPluginsPath + '\x86-ansi';
@@ -77,7 +78,7 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
         
         Copy-Item $pluginPath $pluginOutput -force
 
-        Write-Output "[includeCustomPluginsPath] dump 'plugins\x86-ansi':"
+        Write-Output "[includeCustomPluginsPath] dump '$pluginOutput':"
         Get-ChildItem $pluginOutput
         Write-Host "" # write new line
     }
@@ -92,8 +93,8 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
 
         Copy-Item $pluginPath $pluginOutput -force
 
-        Write-Output "[includeCustomPluginsPath] dump '$pluginPath':"
-        Get-ChildItem $pluginPath
+        Write-Output "[includeCustomPluginsPath] dump '$pluginOutput':"
+        Get-ChildItem $pluginOutput
         Write-Host "" # write new line
     }
 
@@ -107,11 +108,12 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
 
         Copy-Item $pluginPath $pluginOutput -force
 
-        Write-Output "[includeCustomPluginsPath] dump '$pluginPath':"
-        Get-ChildItem $pluginPath
+        Write-Output "[includeCustomPluginsPath] dump '$pluginOutput':"
+        Get-ChildItem $pluginOutput
         Write-Host "" # write new line
     }
 }
+Write-Host "" # write new line
 
 $nsis3Exe = $nsis3Directory + "\makensis.exe"
 
