@@ -4,11 +4,12 @@ $arguments = Get-VstsInput -Name arguments;
 $includeMorePlugins = Get-VstsInput -Name includeMorePlugins -Require;
 $includeCustomPluginsPath = Get-VstsInput -Name includeCustomPluginsPath -Require;
 
-Write-Host "scriptFile = $(scriptFile)"
-Write-Host "justInclude = $(justInclude)"
-Write-Host "arguments = $(arguments)"
-Write-Host "includeMorePlugins = $(includeMorePlugins)"
-Write-Host "includeCustomPluginsPath = $(includeCustomPluginsPath)"
+Write-Host "scriptFile = $scriptFile"
+Write-Host "justInclude = $justInclude"
+Write-Host "arguments = $arguments"
+Write-Host "includeMorePlugins = $includeMorePlugins"
+Write-Host "includeCustomPluginsPath = $includeCustomPluginsPath"
+
 #foreach ($key in $PSBoundParameters.Keys) {
 #    Write-Host ($key + ' = ' + $PSBoundParameters[$key])
 #}
@@ -63,7 +64,7 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
     
     # Has ansi plugin folder, copy in appropriate out folder
     if ($hasAnsiPath) {
-        Write-Output "[includeCustomPluginsPath - x86-ansi detected] dump '$(includeCustomPluginsPath)\x86-ansi':"
+        Write-Output "[includeCustomPluginsPath - x86-ansi detected] dump '$includeCustomPluginsPath\x86-ansi':"
         Get-ChildItem $includeCustomPluginsPath + '\x86-ansi'
         
         $pluginPath = $includeCustomPluginsPath + "\x86-ansi\*"
@@ -76,7 +77,7 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
     
     # Has unicode plugin folder, copy in appropriate out folder
     if ($hasUnicodePath) {
-        Write-Output "[includeCustomPluginsPath - x86-unicode detected] dump '$(includeCustomPluginsPath)\x86-unicode':"
+        Write-Output "[includeCustomPluginsPath - x86-unicode detected] dump '$includeCustomPluginsPath\x86-unicode':"
         Get-ChildItem $includeCustomPluginsPath + '\x86-unicode'
         
         $pluginPath = $includeCustomPluginsPath + "\x86-unicode\*"
@@ -89,7 +90,7 @@ if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
 
     # No ansi/unicode path provided, interpret it as ansi to be backward compatible
     if (-Not $hasAnsiPath -and -Not $hasUnicodePath) {
-        Write-Output "[includeCustomPluginsPath - no x86-ansi, no x86-unicode detected - fallback to x86-ansi] dump '$(includeCustomPluginsPath)':"
+        Write-Output "[includeCustomPluginsPath - no x86-ansi no x86-unicode detected - fallback to x86-ansi] dump '$includeCustomPluginsPath':"
         Get-ChildItem $includeCustomPluginsPath
 
         $pluginPath = $includeCustomPluginsPath + "\*"
