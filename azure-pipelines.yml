@@ -42,14 +42,20 @@ steps:
   inputs:
     script: 'tfx extension create --manifest-globs vss-extension.json'
     workingDirectory: '/home/vsts/work/1/s'
-- task: FtpUpload@2
+# - task: FtpUpload@2
+#   inputs:
+#     credentialsOption: 'serviceEndpoint'
+#     serverEndpoint: 'Onestore Ftp Maxima'
+#     rootDirectory: '/home/vsts/work/1/s'
+#     filePatterns: '*.vsix'
+#     remoteDirectory: '/internal/dev-ops-extensions/nsis-extension/$(Build.BuildId)/'
+#     clean: false
+#     cleanContents: false
+#     preservePaths: false
+#     trustSSL: false
+- task: PublishBuildArtifacts@1
   inputs:
-    credentialsOption: 'serviceEndpoint'
-    serverEndpoint: 'Onestore Ftp Maxima'
-    rootDirectory: '/home/vsts/work/1/s'
-    filePatterns: '*.vsix'
-    remoteDirectory: '/internal/dev-ops-extensions/nsis-extension/$(Build.BuildId)/'
-    clean: false
-    cleanContents: false
-    preservePaths: false
-    trustSSL: false
+    PathtoPublish: '/home/vsts/work/1/s'
+    ArtifactName: 'nsis-extension'
+    publishLocation: 'Container'
+

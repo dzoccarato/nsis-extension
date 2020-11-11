@@ -1,34 +1,34 @@
 {
-    "id": "a459f79f-b932-4ebc-ae19-060fd656b294",
-    "name": "nsis",
-    "friendlyName": "Nsis",
-    "description": "Run Nsis",
-    "helpMarkDown": "Run Nsis [More Information](https://github.com/development-bizeta-mestre/nsis-extension)",
+    "id": "23d12b97-cf4e-4b40-bc6a-f49fca5dc427",
+    "name": "nsis-test",
+    "friendlyName": "Nsis-test",
+    "description": "Run Nsis (test version)",
+    "helpMarkDown": "Run Nsis [More Information](https://github.com/dzoccarato/nsis-extension)",
     "category": "Build",
-    "author": "bizeta",
+    "author": "dzoccarato",
     "version": {
         "Major": 2,
         "Minor": 0,
-        "Patch": 1
+        "Patch": 7
     },
     "links": {
         "home": {
-            "uri": "https://github.com/development-bizeta-mestre/nsis-extension"
+            "uri": "https://github.com/dzoccarato/nsis-extension"
         },
         "repository": {
-            "uri": "https://github.com/development-bizeta-mestre/nsis-extension"
+            "uri": "https://github.com/dzoccarato/nsis-extension"
         },
         "issues": {
-            "uri": "https://github.com/development-bizeta-mestre/nsis-extension/issues"
+            "uri": "https://github.com/dzoccarato/nsis-extension/issues"
         }
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/development-bizeta-mestre/nsis-extension"
+        "uri": "https://github.com/dzoccarato/nsis-extension"
     },
     "badges": [
         {
-            "href": "https://github.com/development-bizeta-mestre/nsis-extension",
+            "href": "https://github.com/dzoccarato/nsis-extension",
             "uri": "https://maximaretail.visualstudio.com/OneStore/_apis/build/status/DevOps%20extensions/dev-maxima.nsis-extension?branchName=master",
             "description": "DevOps Build status for the project"
         }
