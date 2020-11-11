@@ -1,6 +1,6 @@
 $scriptFile = Get-VstsInput -Name scriptFile -Require;
 $justInclude = Get-VstsInput -Name justInclude -Require;
-$arguments = Get-VstsInput -Name arguments -Require;
+$arguments = Get-VstsInput -Name arguments;
 $includeMorePlugins = Get-VstsInput -Name includeMorePlugins -Require;
 $includeCustomPluginsPath = Get-VstsInput -Name includeCustomPluginsPath -Require;
 

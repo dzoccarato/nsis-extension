@@ -3,32 +3,32 @@
     "name": "nsis",
     "friendlyName": "Nsis",
     "description": "Run Nsis",
-    "helpMarkDown": "Run Nsis [More Information](https://github.com/dev-maxima/nsis-extension)",
+    "helpMarkDown": "Run Nsis [More Information](https://github.com/development-bizeta-mestre/nsis-extension)",
     "category": "Build",
     "author": "bizeta",
     "version": {
         "Major": 1,
         "Minor": 1,
-        "Patch": 8
+        "Patch": 9
     },
     "links": {
         "home": {
-            "uri": "https://github.com/dev-maxima/nsis-extension"
+            "uri": "https://github.com/development-bizeta-mestre/nsis-extension"
         },
         "repository": {
-            "uri": "https://github.com/dev-maxima/nsis-extension"
+            "uri": "https://github.com/development-bizeta-mestre/nsis-extension"
         },
         "issues": {
-            "uri": "https://github.com/dev-maxima/nsis-extension/issues"
+            "uri": "https://github.com/development-bizeta-mestre/nsis-extension/issues"
         }
     },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/dev-maxima/nsis-extension"
+        "uri": "https://github.com/development-bizeta-mestre/nsis-extension"
     },
     "badges": [
         {
-            "href": "https://github.com/dev-maxima/nsis-extension",
+            "href": "https://github.com/development-bizeta-mestre/nsis-extension",
             "uri": "https://maximaretail.visualstudio.com/OneStore/_apis/build/status/DevOps%20extensions/dev-maxima.nsis-extension?branchName=master",
             "description": "DevOps Build status for the project"
         }
