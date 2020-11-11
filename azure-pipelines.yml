@@ -28,23 +28,34 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Install-Module -Name VstsTaskSdk -Force
-# - task: CopyFiles@2
+      Install-Module -Name VstsTaskSdk -Force -RequiredVersion 0.11.0
+# - task: PowerShell@2
 #   inputs:
-#     sourceFolder: '/home/vsts/work/1/s/**/VstsTaskSdk'
-#     targetFolder: '/home/vsts/work/1/s/nsis/ps_modules/VstsTaskSdk'
+#     targetType: 'inline'
+#     script: |
+#       Get-Module -ListAvailable
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '/home/vsts/.local/share/powershell/Modules/VstsTaskSdk/0.11.0'
+    targetFolder: '/home/vsts/work/1/s/nsis/ps_modules/VstsTaskSdk'
 - task: CmdLine@2
   inputs:
     script: 'tfx extension create --manifest-globs vss-extension.json'
     workingDirectory: '/home/vsts/work/1/s'
-- task: FtpUpload@2
+# - task: FtpUpload@2
+#   inputs:
+#     credentialsOption: 'serviceEndpoint'
+#     serverEndpoint: 'Onestore Ftp Maxima'
+#     rootDirectory: '/home/vsts/work/1/s'
+#     filePatterns: '*.vsix'
+#     remoteDirectory: '/internal/dev-ops-extensions/nsis-extension/$(Build.BuildId)/'
+#     clean: false
+#     cleanContents: false
+#     preservePaths: false
+#     trustSSL: false
+- task: PublishBuildArtifacts@1
   inputs:
-    credentialsOption: 'serviceEndpoint'
-    serverEndpoint: 'Onestore Ftp Maxima'
-    rootDirectory: '/home/vsts/work/1/s'
-    filePatterns: '*.vsix'
-    remoteDirectory: '/internal/dev-ops-extensions/nsis-extension/$(Build.BuildId)/'
-    clean: false
-    cleanContents: false
-    preservePaths: false
-    trustSSL: false
+    PathtoPublish: '/home/vsts/work/1/s'
+    ArtifactName: 'nsis-extension'
+    publishLocation: 'Container'
+
