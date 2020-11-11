@@ -2,6 +2,7 @@ $scriptFile = Get-VstsInput -Name scriptFile -Require;
 $justInclude = Get-VstsInput -Name justInclude -Require;
 $arguments = Get-VstsInput -Name arguments;
 $includeMorePlugins = Get-VstsInput -Name includeMorePlugins -Require;
+$includeCustomPlugins = Get-VstsInput -Name includeCustomPlugins -Require;
 $includeCustomPluginsPath = Get-VstsInput -Name includeCustomPluginsPath -Require;
 
 Write-Host "scriptFile = $scriptFile"
@@ -10,9 +11,6 @@ Write-Host "arguments = $arguments"
 Write-Host "includeMorePlugins = $includeMorePlugins"
 Write-Host "includeCustomPluginsPath = $includeCustomPluginsPath"
 Write-Host "" # write new line
-#foreach ($key in $PSBoundParameters.Keys) {
-#    Write-Host ($key + ' = ' + $PSBoundParameters[$key])
-#}
 
 $path = split-path $MyInvocation.MyCommand.Path
 
@@ -61,7 +59,7 @@ if ($includeMorePlugins -eq "yes") {
 }
 Write-Host "" # write new line
 
-if (-Not ([string]::IsNullOrEmpty($includeCustomPluginsPath))) {
+if ($includeCustomPlugins -eq "yes") {
     
     $customAnsiPath = $includeCustomPluginsPath + '\x86-ansi';
     $hasAnsiPath = Test-Path $customAnsiPath;
