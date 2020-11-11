@@ -28,7 +28,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Install-Module -Name VstsTaskSdk -Force
+      Install-Module -Name VstsTaskSdk -Force -RequiredVersion 0.11.0
 # - task: PowerShell@2
 #   inputs:
 #     targetType: 'inline'
