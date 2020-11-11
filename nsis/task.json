@@ -9,7 +9,7 @@
     "version": {
         "Major": 2,
         "Minor": 0,
-        "Patch": 5
+        "Patch": 6
     },
     "links": {
         "home": {
@@ -77,14 +77,26 @@
             }
         },
         {
+            "name": "includeCustomPlugins",
+            "type": "radio",
+            "label": "Include custom plugins",
+            "defaultValue": "no",
+            "helpMarkDown": "Enable if you want inject custom plugin providing a path below",
+            "required": "true",
+            "options": {
+                "yes": "yes",
+                "no": "no"
+            }
+        },
+        {
             "name": "includeCustomPluginsPath",
             "type": "filePath",
             "label": "Custom Plugins Path",
             "defaultValue": "",
-            "helpMarkDown": "If you want include additional plugins that aren't in our default directory, you could specify your plugin directory so your plugins will copied and used into NSIS process. This will work with plugins/x86-ansi",
-            "required": "false"
+            "helpMarkDown": "If you want include additional plugins that aren't in our default directory, you could specify your plugin directory so your plugins will be copied and used into NSIS process.",
+            "required": "false",
+            "visibleRule": "includeCustomPlugins = yes"
         }
-
     ],
     "execution": {
         "PowerShell3": {
